@@ -26,24 +26,27 @@
   </header>
   <!-- Contenido principal de la página -->
   <main>
-    <h2>Últimas Películas en Cartelera</h2>
+    <!-- Titulo y texto de introduccion -->
+    <section id="sec-introText">
+      <h2 class="title">Últimas Películas en Cartelera</h2>
+      <p class="subtitle">Agregar Pelicula Favorita por Codigo</p>
+    </section>
+
     <section id="form-movie-new">
       <!--Seccion para agregar una palicula favorita por codigo-->
       <form>
         <input type="text" name="fpelicula"><br>
-        <button type="button">Agregar a Favoritas</button>
+        <button type="button">Agregar</button>
       </form>
     </section>
-    <section id="sec-messages"> <!--Agregamos el mensaje-->
 
-      <p>La Película ingresada ya se encuentra almacenada</p>
-      <p>Película agregada con éxito</p>
-      <p>Error: La Película seleccionada no se encuentra en la API o se produjo un
+    <section id="sec-messages"> <!--Seccion para mensajes-->
+      <p class="msgWarning">La Película ingresada ya se encuentra almacenada</p>
+      <p class="msgSuccess">Película agregada con éxito</p>
+      <p class="msgError">Error: La Película seleccionada no se encuentra en la API o se produjo un
         error al consultar</p>
-
-
-      <!--Seccion para mensajes-->
     </section>
+
     <section id="sec_peliculas"> <!--Mostramos la pelicula-->
       <div class="contenedorPeliculas">
         <img src="https://image.tmdb.org/t/p/w500/fcFMd3HdyX7r5gtFwVnn2qr5Yhq.jpg" alt="imgPeliculaCreed">
@@ -52,7 +55,39 @@
         <p><b>Titulo Original: </b>Creed III</p>
         <p><b>Idioma Original: </b>en</p>
         <p><b>Año: </b>2023-03-01</p>
+        <button class="button">Agregar a favoritas</button>
       </div>
+
+      <div class="contenedorPeliculas">
+        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg" alt="imgPeliculaMarioBross">
+        <h3>Mario Bross</h3>
+        <p><b>Código: </b>123456</p>
+        <p><b>Título Original: </b>Mario Bross</p>
+        <p><b>Idioma Original: </b>en</p>
+        <p><b>Año: </b>2023-01-15</p>
+        <button class="button">Agregar a favoritas</button>
+      </div>
+
+      <div class="contenedorPeliculas">
+        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/uYxrWr9o44yO0HvVfFFHGu01gfX.jpg" alt="imgPeliculaComunion">
+        <h3>La Niña de la Comunión</h3>
+        <p><b>Código: </b>234567</p>
+        <p><b>Título Original: </b>La Niña de la Comunión</p>
+        <p><b>Idioma Original: </b>es</p>
+        <p><b>Año: </b>2023-02-05</p>
+        <button class="button">Agregar a favoritas</button>
+      </div>
+
+      <div class="contenedorPeliculas">
+        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/kuf6dutpsT0vSVehic3EZIqkOBt.jpg" alt="imgPeliculaGatoConBotas">
+        <h3>El Gato con Botas</h3>
+        <p><b>Código: </b>345678</p>
+        <p><b>Título Original: </b>El Gato con Botas</p>
+        <p><b>Idioma Original: </b>es</p>
+        <p><b>Año: </b>2023-05-06</p>
+        <button class="button">Agregar a favoritas</button>
+      </div>
+
       <!--Seccion visualizacion de peliculas-->
       <div class="contenedorPeliculas" id="contenedorPeliculas"></div>
     </section>

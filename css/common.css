@@ -2,8 +2,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande","Lucida Sans Unicode", "Geneva", Verdana, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+
 }
+
 :root {
   /* Declaro variables CSS con colores principales */
   --color-theme: #FFCE30;
@@ -12,42 +14,52 @@
   --color-back-inactive: #c4c6c9;
   --color-titulos: #E83845;
   --color-texto-blanco: #FFF;
-  --color-gradient: linear-gradient(
-    to right,
-    var(--color-theme),
-    var(--color-back-active)
-  );
+  --color-gradient: linear-gradient(to right,
+      var(--color-theme),
+      var(--color-back-active));
 }
+
 body {
   height: 100%;
   width: 100%;
+  background-color: #e0e0e0;
+  color: #1d1d1d;
 }
+
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 button,
 a {
   user-select: none;
   -webkit-user-select: none;
 }
+
 header {
   position: fixed;
   top: 0;
   width: 100%;
   background-image: url('../img/FondoCine6.webp');
-  border-radius: 0 0% 20px 20px ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0 0% 20px 20px;
   border-bottom: 2px solid var(--color-active);
 }
-nav > ul {
+
+nav>ul {
   display: flex;
   justify-content: space-between;
   justify-content: center;
+  margin: 0 1px;
 }
+
 nav li {
   flex: 0 0 auto;
 }
+
 nav li a {
   display: block;
   padding: 16px 12px;
@@ -57,12 +69,16 @@ nav li a {
   font-weight: bold;
   color: var(--color-texto-blanco);
   background-color: var(--color-back-inactive);
+  border-radius: 15px 15px 0 0;
+  margin: 0 1px;
 }
+
 nav li.current-page a {
   color: var(--color-theme);
   background-color: var(--color-active);
   pointer-events: none;
 }
+
 main {
   margin-top: 120px;
   overflow: auto;
@@ -70,30 +86,169 @@ main {
   padding-bottom: 60px;
   height: calc(100% - 120px);
   width: 100%;
+
 }
+
+main section {
+  display: flex;
+  justify-content: space-around;
+}
+
 h1 {
   text-align: center;
   margin: 0;
   color: var(--color-theme);
 }
-h1 > img {
+
+h1>img {
   width: 70px;
   vertical-align: middle;
   padding: 10px;
 }
-h2 {
+
+#sec-introText {
+  display: flex;
+  flex-direction: column;
+}
+
+#sec-introText .title {
   color: var(--color-titulos);
   margin: 16px 0;
   text-align: center;
+  text-shadow: 0px 3px 5px #898989;
 }
+
+#sec-introText .subtitle {
+  width: 100%;
+  display: flex;
+  align-content: stretch;
+  justify-content: center;
+  margin-bottom: 0px;
+  font-size: 14px;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+
+form button {
+  margin: 0 5px;
+}
+
 h3 {
   color: var(--color-theme);
   margin: 8px 0;
 }
-main section {
+
+#sec-messages {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  width: 500px;
 }
+
+#sec-messages p {
+  color: white;
+  font-size: 12px;
+  word-wrap: break-word;
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.msgWarning {
+  background-color: #ffc107;
+}
+
+.msgSuccess {
+  background-color: #28a745;
+}
+
+.msgError {
+  background-color: #dc3545;
+}
+
+#sec_peliculas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+.contenedorPeliculas{
+  margin: 2rem;
+}
+
+#sec_peliculas img {
+  width: 100%;
+  margin-bottom: 10ps;
+  border-radius: 15px;
+}
+
+#sec_peliculas h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#sec_peliculas p {
+  font-size: 12px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  color: #288BA8;
+}
+
+.button {
+  background: #7f8c8d;
+  margin-top: 10px;
+  padding: 10px 0;
+  text-align: center;
+  width: 200px;
+  text-decoration: none;
+  box-shadow: 0px 3px 0px #373c3c;
+  border-radius: 100px;
+  border: none;
+  color: #e0e0e0;
+  cursor: pointer;
+}
+
+.button span {
+  margin-right: 10px;
+}
+
+.button.medium {
+  width: 150px;
+}
+
+.button.radius {
+  border-radius: 50px;
+}
+
+.button:hover {
+  box-shadow: 0px 0px 0px;
+}
+
+
+.paginacion {
+  margin-top: 50px;
+  cursor: pointer;
+}
+
+.paginacion button {
+  cursor: pointer;
+  transition: .3s ease all;
+  width: 200px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #241844;
+  color: #FFFFF5;
+  border: none;
+}
+
+.paginacion button:hover {
+  background-color: var(--color-back-active);
+}
+
 footer {
   position: fixed;
   bottom: 0px;
@@ -103,19 +258,23 @@ footer {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 footer p {
   font-size: small;
   color: var(--color-theme);
 }
+
 main p {
   margin-bottom: 16px;
 }
+
 /* Media Query: Estilos a aplicar sólo en pantallas mayores a 400px */
 @media (min-width: 400px) {
   main {
     padding-left: 10%;
     padding-right: 10%;
   }
+
   footer {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -125,9 +284,9 @@ main p {
 .loader {
   width: 60px;
   height: 60px;
- }
- 
- .loader::before {
+}
+
+.loader::before {
   content: "";
   box-sizing: border-box;
   position: absolute;
@@ -137,22 +296,25 @@ main p {
   border-top: 2px solid #8900FF;
   border-right: 2px solid transparent;
   animation: spinner8217 0.8s linear infinite;
- }
- 
- @keyframes spinner8217 {
+}
+
+@keyframes spinner8217 {
   to {
-   transform: rotate(360deg);
+    transform: rotate(360deg);
   }
- }
-.loader-container{
+}
+
+.loader-container {
   margin: auto;
   display: flex;
   justify-content: center;
 }
-.display{
+
+.display {
   display: none;
 }
-.msg{
+
+.msg {
   width: 50%;
   margin: 20px auto;
   padding: 15px;
@@ -162,12 +324,15 @@ main p {
   font-weight: 200;
   text-align: center;
 }
-.amarillo{
+
+.amarillo {
   background-color: #ffc107;
 }
-.rojo{
-  background-color:#dc3545;
+
+.rojo {
+  background-color: #dc3545;
 }
-.verde{
-  background-color:#28a745 ;
+
+.verde {
+  background-color: #28a745;
 }
