@@ -14,9 +14,7 @@ function agregarPeliculaFavoritos(codigo) {
       return;
     }
 
-    // Validar la existencia del código y no repetir el mismo en el array
-    // Aquí debería ir una consulta a la base de datos para verificar si la película existe
-    // Por simplicidad, asumiremos que la película existe y se puede agregar a favoritos
+
     FAVORITOS.push(codigo);
     console.log("Película agregada con éxito");
   }
