@@ -1,7 +1,7 @@
 //Funcion llamar API
 const obtenerDatosPeliculas = async () => {
     //Consulta
-    const respuestaConsulta = await fetch("https://api.themoviedb.org/3/movie/popular?api_key=eeecbf28b7798d68db98744052fd047a&language=es-MX");
+    const respuestaConsulta = await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=eeecbf28b7798d68db98744052fd047a&language=es-MX&page=1");
     console.log(respuestaConsulta);
 
     //Pasamos a obj
@@ -47,18 +47,30 @@ const agregarEventosFavoritos = () => {
 // Funcion agregar a favoritos
 const agregarAFavoritos = (event) => {
     const listaFavoritos = JSON.parse(localStorage.getItem("listaFavoritos")) || [];
-    const codigoPelicula = event.target.dataset.code;
+    const codigoPeliculaFavoritos = event.target.dataset.code;
+    //Capturo msj
+    const msgWarning = document.querySelector(".msgWarning");
+    const msgSuccess = document.querySelector(".msgSuccess");
+    const msgError = document.querySelector(".msgError");
 
-    // Comprobamos si el array de favoritos contiene el código de la película
-    if (listaFavoritos.includes(codigoPelicula)) {
-        // Si es así, mostramos un mensaje al usuario
-        alert("Esta película ya está en tus favoritos");
+    // Comprobamos si esta en el array
+    if (listaFavoritos.includes(codigoPeliculaFavoritos)) {
+        msgWarning.style.display = "block";
     } else {
-        listaFavoritos.push(codigoPelicula)
-        alert("Película agregada a favoritos con éxito");
-        localStorage.setItem("listaFavoritos", JSON.stringify(listaFavoritos));
-        console.log(listaFavoritos);
+            try{
+            listaFavoritos.push(codigoPeliculaFavoritos)
+            localStorage.setItem("listaFavoritos", JSON.stringify(listaFavoritos));
+            console.log(listaFavoritos);
+            msgSuccess.style.display = "block";
+            } catch {
+            msgError.style.display = "block";
+        }
     }
+    setTimeout(() => {
+        msgWarning.style.display = "none";
+        msgSuccess.style.display = "none";
+        msgError.style.display = "none";
+    }, 2000);
 };
 
 // Funcion para llamar Api y mostrar pelicula

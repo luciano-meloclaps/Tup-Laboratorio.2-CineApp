@@ -29,26 +29,19 @@
     </nav>
   </header>
 
-  <!--Loader-->
-  <div id="loader">
-    <img src="img/loader.gif">
-  </div>
-
-
-  <!-- Contenido principal de la página -->
-
+  <!---------- Contenido principal de la página ------->
   <main>
     <!-- Titulo y texto de introduccion -->
     <section id="sec-introIndex">
       <h2 class="title">Últimas Películas en Cartelera</h2>
-      <p class="subtitle">Agregar Pelicula Favorita por Codigo</p>
+      <b id="subtitle-movie" class="subtitle">Agregar Pelicula Favorita por Codigo</b>
     </section>
 
     <!--Seccion para agregar una palicula favorita por codigo-->
     <section id="form-movie-new">
       <form>
-        <input type="text" name="fpelicula"><br>
-        <button type="button">Agregar</button>
+        <input type="text" name="fpelicula" id="input-movie">     
+        <button type="button" id="button-movie">Agregar</button>
       </form>
     </section>
 
@@ -70,7 +63,7 @@
         <p><b></b></p>
         <p><b></b></p>
         <p><b></b></p>
-        <button class="button"></button>
+        <button></button>
       </div>
     </section>
   </main>
@@ -78,5 +71,6 @@
     <p>Desarrollado con ♥ - LC2</p>
   </footer>
 
-  <script src="/js/pages/index.js"></script>
+  <script defer src="/js/pages/index.js"></script>
+  <script src="/js/common.js"></script>
 </body>
