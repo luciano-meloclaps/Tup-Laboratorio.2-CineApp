@@ -1,4 +1,3 @@
-
 .sec-IntroFav {
     color: var(--color-titulos);
     margin: 16px 0;
@@ -7,50 +6,77 @@
 }
 
 
-#sec_peliculas {
-    max-width: 1000px;
-    width: 100%;
-    margin: 0 auto;
-}
 
 
-#sec-favorities-list{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 1000px;
-    width: 100%;
-    margin: 0 auto;
-}
+    #sec-favorities-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1000px;
+        width: 100%;
+        margin: 0 auto;
+    }
 
-.contenedorPeliculasFavoritas {
-    margin: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    .contenedorPeliculasFavoritas {
+        margin: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-#sec-favorities-list img {
-    width: 60%;
-    margin-bottom: 10ps;
-    border-radius: 15px;
-}
+    #sec-favorities-list img {
+        width: 60%;
+        margin-bottom: 10ps;
+        border-radius: 15px;
+    }
 
-.contenedorText{
-    display: flex;
-    flex-direction: column  ;
-}
+    .contenedorText {
+        display: flex;
+        flex-direction: column;
+    }
 
-#sec-favorities-list h3{
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-theme);
-    margin: 8px 0;
+    #sec-favorities-list h3 {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--color-theme);
+        margin: 8px 0;
 
-}
+    }
 
-#sec-favorities-list p {
-    font-size: 12px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin: 0;
-    color: #288BA8;
-}
+    #sec-favorities-list p {
+        font-size: 12px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin: 0;
+        color: #288BA8;
+    }
+
+
+    .btn-quitar {
+        background: #7f8c8d;
+        margin-top: 10px;
+        padding: 10px 0;
+        text-align: center;
+        width: 200px;
+        text-decoration: none;
+        box-shadow: 0px 3px 0px #373c3c;
+        border-radius: 100px;
+        border: none;
+        color: #e0e0e0;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    .btn-quitar span {
+        margin-right: 10px;
+    }
+
+    .btn-quitar.medium {
+        width: 150px;
+    }
+
+    .btn-quitar.radius {
+        border-radius: 50px;
+    }
+
+    .btn-quitar:hover {
+        box-shadow: 0px 0px 0px;
+    }

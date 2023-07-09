@@ -30,7 +30,7 @@ form button {
 }
 
 /*modifique*/
-#subtitle-movie {
+#subtitle-movie {   
     font-size: 25px;
     font-weight:bold;
     color: #288BA8;
@@ -69,6 +69,7 @@ form button {
     text-align: center;
     border-radius: 20px;
     padding: 20px;
+    align-items: end;
 }
 
 .msgWarning {
@@ -96,8 +97,8 @@ form button {
     max-width: 1000px;
     width: 100%;
     margin: 0 auto;
-    align-items: baseline;
-}
+    grid-auto-rows: (300px, auto);
+}   
 
 .contenedorPeliculas {
     margin: 2rem;

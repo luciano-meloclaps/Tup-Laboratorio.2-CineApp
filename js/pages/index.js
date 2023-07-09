@@ -1,13 +1,14 @@
 //Funcion llamar API
 const obtenerDatosPeliculas = async () => {
     //Consulta
+    mostrarAvisoCarga();
     const respuestaConsulta = await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=eeecbf28b7798d68db98744052fd047a&language=es-MX&page=1");
     console.log(respuestaConsulta);
 
     //Pasamos a obj
     const datosJson = await respuestaConsulta.json();
     console.log(datosJson.results);
-
+    setTimeout(ocultarAvisoCarga, 4000);
     return datosJson.results;
 };
 
@@ -44,45 +45,41 @@ const agregarEventosFavoritos = () => {
     });
 };
 
-// Funcion agregar a favoritos
-const agregarAFavoritos = (event) => {
-    const listaFavoritos = JSON.parse(localStorage.getItem("listaFavoritos")) || [];
-    const codigoPeliculaFavoritos = event.target.dataset.code;
-    //Capturo msj
-    const msgWarning = document.querySelector(".msgWarning");
-    const msgSuccess = document.querySelector(".msgSuccess");
-    const msgError = document.querySelector(".msgError");
+    // Funcion agregar a favoritos
+    const agregarAFavoritos = (event) => {
+        const listaFavoritos = JSON.parse(localStorage.getItem("listaFavoritos")) || [];
+        const codigoPeliculaFavoritos = event.target.dataset.code;
+        //Capturo msj
+        const msgWarning = document.querySelector(".msgWarning");
+        const msgSuccess = document.querySelector(".msgSuccess");
+        const msgError = document.querySelector(".msgError");
 
-    // Comprobamos si esta en el array
-    if (listaFavoritos.includes(codigoPeliculaFavoritos)) {
-        msgWarning.style.display = "block";
-    } else {
-            try{
-            listaFavoritos.push(codigoPeliculaFavoritos)
-            localStorage.setItem("listaFavoritos", JSON.stringify(listaFavoritos));
-            console.log(listaFavoritos);
-            msgSuccess.style.display = "block";
-            } catch {
-            msgError.style.display = "block";
+        // Comprobamos si esta en el array
+        if (listaFavoritos.includes(codigoPeliculaFavoritos)) {
+            msgWarning.style.display = "block";
+        } else {
+                try{
+                listaFavoritos.push(codigoPeliculaFavoritos)
+                localStorage.setItem("listaFavoritos", JSON.stringify(listaFavoritos));
+                console.log(listaFavoritos);
+                msgSuccess.style.display = "block";
+                } catch {
+                msgError.style.display = "block";
+            }
         }
-    }
-    setTimeout(() => {
-        msgWarning.style.display = "none";
-        msgSuccess.style.display = "none";
-        msgError.style.display = "none";
-    }, 2000);
-};
+        setTimeout(() => {
+            msgWarning.style.display = "none";
+            msgSuccess.style.display = "none";
+            msgError.style.display = "none";
+        }, 2000);
+    };
 
-// Funcion para llamar Api y mostrar pelicula
-const llamarApiPelicula = async () => {
-    try {
-        const peliculas = await obtenerDatosPeliculas();
-        mostrarPeliculas(peliculas);
-        agregarEventosFavoritos();
-    } catch (error) {
-        console.log(error);
-    }
-};
+    // Funcion para llamar Api y mostrar pelicula
+    const llamarApiPelicula = async () => {
+            const peliculas = await obtenerDatosPeliculas();
+            mostrarPeliculas(peliculas);
+            agregarEventosFavoritos();
+    };
 
-// Llamamos a la función llamarApiPelicula para ejecutarla
-setTimeout(llamarApiPelicula, 2000);
+    // Llamamos a la función llamarApiPelicula para ejecutarla
+    setTimeout(llamarApiPelicula);
