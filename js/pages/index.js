@@ -13,14 +13,14 @@ btnAnterior.addEventListener('click', () => {
     mostrarPeliculas();
 });
 
-//Funcion llamar API
+// Funcion llamar API
 const obtenerDatosPeliculas = async () => {
     try {
-        //Consulta
+        // Consulta
         const respuestaConsulta = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=eeecbf28b7798d68db98744052fd047a&language=es-MX&page=${page}`);
         console.log(respuestaConsulta);
 
-        //Pasamos a obj
+        // Pasamos a obj
         const datosJson = await respuestaConsulta.json();
         console.log(datosJson.results);
 
@@ -31,7 +31,7 @@ const obtenerDatosPeliculas = async () => {
     }
 };
 
-//Funcion imprimir peliculas en el HTML
+// Funcion imprimir peliculas en el HTML
 const mostrarPeliculas = async () => {
     try {
         const peliculas = await obtenerDatosPeliculas();
@@ -55,16 +55,18 @@ const mostrarPeliculas = async () => {
 
         const sec_peliculas = document.getElementById("sec_peliculas");
         sec_peliculas.innerHTML = listaPeliculas;
+
+        agregarEventosFavoritos();
     } catch (error) {
         console.error(error);
     }
 };
 
-
 // Funcion agregar a favoritos
 const agregarAFavoritos = (event) => {
     const listaFavoritos = JSON.parse(localStorage.getItem("listaFavoritos")) || [];
     const codigoPeliculaFavoritos = event.target.dataset.code;
+
     //Capturo msj
     const msgWarning = document.querySelector(".msgWarning");
     const msgSuccess = document.querySelector(".msgSuccess");
@@ -90,12 +92,19 @@ const agregarAFavoritos = (event) => {
     }, 2000);
 };
 
-// Funcion para llamar Api y mostrar pelicula
-const llamarApiPelicula = async () => {
-    const peliculas = await obtenerDatosPeliculas();
-    mostrarPeliculas(peliculas);
-    agregarEventosFavoritos();
+// Funcion para agregar los eventos de favoritos a los botones
+const agregarEventosFavoritos = () => {
+    const botonesFavoritos = document.querySelectorAll(".button");
+    botonesFavoritos.forEach((boton) => {
+        boton.addEventListener("click", agregarAFavoritos);
+    });
 };
 
-// Llamamos a la función llamarApiPelicula para ejecutarla
+// Funcion llamar Api y mostrar pelicula
+const llamarApiPelicula = async () => {
+    const peliculas = await obtenerDatosPeliculas();
+    mostrarPeliculas();
+};
+
+// Llamamos a la función
 llamarApiPelicula();
