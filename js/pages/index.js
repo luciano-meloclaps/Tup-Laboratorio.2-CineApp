@@ -1,14 +1,13 @@
 //Funcion llamar API
 const obtenerDatosPeliculas = async () => {
     //Consulta
-    mostrarAvisoCarga();
     const respuestaConsulta = await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=eeecbf28b7798d68db98744052fd047a&language=es-MX&page=1");
     console.log(respuestaConsulta);
 
     //Pasamos a obj
     const datosJson = await respuestaConsulta.json();
     console.log(datosJson.results);
-    setTimeout(ocultarAvisoCarga, 4000);
+
     return datosJson.results;
 };
 
